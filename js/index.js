@@ -23,7 +23,6 @@ function openTableCustomers() {
     tableTransactions.classList.add("d-none")
     AddTransactions.classList.add("d-none")
     tableClintTransactions.classList.add("d-none")
-    console.log(1111);
 }
 // close Table Customers
 xmarkTableCustomers.addEventListener("click",closeTableCustomers)
@@ -33,7 +32,6 @@ function closeTableCustomers(){
     tableTransactions.classList.add("d-none")
     AddTransactions.classList.add("d-none")
     tableClintTransactions.classList.add("d-none")
-    console.log(222);
 }
 
 
@@ -45,7 +43,6 @@ function openTableAddCustomer() {
     tableTransactions.classList.add("d-none")
     AddTransactions.classList.add("d-none")
     tableClintTransactions.classList.add("d-none")
-    console.log(2);
 }
 // close Table Add Customers
 xmarkTableAddCustomer.addEventListener("click",closeTableAddCustomer)
@@ -55,15 +52,12 @@ function closeTableAddCustomer(){
     tableTransactions.classList.add("d-none")
     AddTransactions.classList.add("d-none")
     tableClintTransactions.classList.add("d-none")
-    console.log(200);
-
 }
 
 
 // open Table Transactions
 btnTransactions.addEventListener("click",openTableTransactions)
 function openTableTransactions() {
-    console.log(3333333);
     tableTransactions.classList.toggle("d-none")
     tableCustomers.classList.add("d-none")
     tableAddCustomer.classList.add("d-none")
@@ -73,7 +67,6 @@ function openTableTransactions() {
 // close Table Transactions
 xmarkTableTransactions.addEventListener("click",close)
 function close(){
-    console.log(444444444444);
     tableTransactions.classList.add("d-none")
     tableCustomers.classList.add("d-none")
     tableAddCustomer.classList.add("d-none")
@@ -104,8 +97,6 @@ function getCustomerName() {
         id:inputCustomerId.value,
     }
     if (lestCustomer.id.length>0 && lestCustomer.name.length>0 ) {
-        
-        console.log(220);
         CustomerSaveName.push(lestCustomer)
         localStorage.setItem("CustomerSaveName",JSON.stringify(CustomerSaveName))
         display()
@@ -143,7 +134,6 @@ function display() {
     document.getElementById("creatTCustomer").innerHTML = cartona;
 }
 
-
 // search in name Customer
 let searchIn = document.getElementById("searchIn")
 function searchName() {
@@ -171,7 +161,6 @@ function AddTransactionsIdName(i) {
     document.getElementById("formAddTransactionsName").innerHTML=`name: ${CustomerSaveName[i].name}`
     AddTransactions.classList.remove("d-none")    
     nameId= CustomerSaveName[i].id
-        console.log("kkkk9999");
         tableCustomers.classList.add("d-none")
         tableAddCustomer.classList.add("d-none")
         tableTransactions.classList.add("d-none")
@@ -189,7 +178,6 @@ function closeXmarkFormAddTransaction() {
     tableAddCustomer.classList.add("d-none")
     tableTransactions.classList.add("d-none")
     tableClintTransactions.classList.add("d-none")
-    console.log(8);
 }
 
 
@@ -202,8 +190,6 @@ let AmountArrClint=[];
 // btn Add Transactions
 BtnAddTransactions.addEventListener("click",getDataTAddTransactions)
 function getDataTAddTransactions() {
-    console.log(5);
-    console.log(inputTransactionNumber.value);
     let OpgClint = {
         id:nameId,
         num:inputTransactionNumber.value,
@@ -219,8 +205,6 @@ function getDataTAddTransactions() {
         inputData.value = "";
         inputAmount.value = "";
 
-        console.log("::::");
-        console.log(inputData.value);
 // animation
         BtnAddTransactions.classList.add("d-none");
         like2.classList.remove("d-none")
@@ -276,7 +260,6 @@ function el3rd() {
     let result = bn.reduce((sum,el)=>{
         return sum+Number(el.amount)
      },0)
-     console.log(result);
      document.getElementById("totalSumbn").innerHTML = result
 }
 
@@ -308,7 +291,6 @@ function idAllTransactions() {
     let result = AmountArrClint.reduce((sum,el)=>{
         return sum+Number(el.amount)
      },0)
-     console.log(result);
      document.getElementById("totalSum").innerHTML = result
 }
 
@@ -343,7 +325,6 @@ function DeleteTransactions(i) {
 }
 // Delete All Transactions
 document.getElementById("DeleteAll").addEventListener("click",function () {
-    console.log(787);
     AmountArrClint.length = 0;
     localStorage.setItem("AmountArrClint",JSON.stringify(AmountArrClint))
     idAllTransactions()
