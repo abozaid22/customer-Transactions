@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer & Transactions</title>
+    <link rel="icon" href="img/icon.jpg">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-body-secondary">
+
+  <div class="container bg-dark-subtle pb-1">
+    <h1 class=" mb-2 text-center pt-3 ">customer & Transactions</h1>
+    <!-- btn -->
+    <section class="row pb-1 dn">
+      <div class="text-center my-1 m-auto col-md-3 col-12 ">
+        <button id="btnCustomers" class="btn btn-outline-primary rounded-5"> customers </button>
+      </div>
+      <div class="text-center my-1 m-auto col-md-3 col-12 ">
+        <button id="btnAddCustomer" class="btn btn-outline-primary rounded-5"> Add customer </button>
+      </div>
+      <div class="text-center my-1 m-auto col-md-3 col-12 ">
+        <button id="btnTransactions" class="btn btn-outline-primary rounded-5"> Transactions </button>
+      </div>
+    </section>
+    
+    <!-- customers -->
+    <section id="tableCustomers" class="customers d-none">
+      <div class="">
+        <div id="xmarkTableCustomers" class="w-100 p-0 bg-warning-subtle btn rounded-2">
+          <h3 class=" text-center m-0">close</h3>
+        </div>
+        <!-- search -->
+        <div >
+          <input oninput="searchName()" id="searchIn" type="text" class="form-control my-1" placeholder="search name . . .">
+        </div>
+        <table  class="table table-bordered table-hover table-responsive table-sm  text-center ">
+          <thead>
+            <tr>  
+              <th>number</th>
+              <th>id</th>
+              <th>name</th>
+              <th>Add Transactions</th>
+              <th >View transactions</th>
+              <th>delete</th>
+            </tr>
+          </thead>
+          <tbody id="creatTCustomer">
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="6"><button id="DeleteAllCustomers" class="btn btn-dark btn-sm rounded-3 mx-3 ms-auto d-block">Delete All</button></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- Add customer -->
+    <section id="tableAddCustomer" class="AddCustomer d-none">
+      <div >
+        <div id="xmarkTableAddCustomer" class="w-100 p-0 bg-warning-subtle btn rounded-2">
+          <h3 class=" text-center m-0">close</h3>
+        </div>
+        <!-- form -->
+        <div class="w-75 mx-auto py-3 ">
+          <div class="form-group mb-3 ">
+            <!-- <h3 id="idExisting" class="d-none" >❕❕❌ id Existing ❌</h3> -->
+            <label for="inputCustomerId" class="mb-2 ">Customer id</label>
+              <input type="number" placeholder="id . . ." class="form-control " name="inputCustomerId" id="inputCustomerId">
+          </div>
+          <div class="form-group mb-3 ">
+            <label for="customerName" class="mb-2 ">Customer Name</label>
+              <input type="text" placeholder="Name . . ." class="form-control " name="customerName" id="inputCustomerName">
+          </div>
+          <button  id="BtnAddCustomer" class="btn btn-success my-2">Add Customer</button>
+          <img src="img/like-gif.gif" id="like" class="w-25 d-none" alt="like" srcset="">
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactions -->
+    <section id="tableTransactions" class="Transactions d-none">
+      <div>
+        <div id="xmarkTableTransactions" class="w-100 p-0 bg-warning-subtle btn rounded-2">
+          <h3 class=" text-center m-0">close</h3>
+        </div>
+        <table class="table table-bordered table-hover table-responsive table-sm  text-center ">
+          <thead>
+            <tr>  
+              <th>number</th>
+              <th>id Transactions</th>
+              <th>id customer</th>
+              <th>amount</th>
+              <th>delete</th>
+            </tr>
+          </thead>
+
+          <tbody id="idAllTransactions">
+
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th colspan="3">total Amount</th>
+              <th id="totalSum">0</th>
+              <th><button id="DeleteAll" class="btn btn-dark btn-sm rounded-3">Delete All</button></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- Add Transactions -->
+    <section id="AddTransactions" class="AddTransactions d-none bg-info-subtle">
+      <div >
+        <!-- btn close -->
+        <div id="xmarkFormAddTransaction" class="w-100 shadow p-0 bg-warning-subtle btn rounded-2">
+          <h3 class=" text-center m-0">close</h3>
+        </div>
+        <!-- form -->
+        <div class="w-75 mx-auto pt-2 ">
+          <div class=" text-center">
+            <h5 id="formAddTransactionsId" class="text-danger-emphasis">id</h5>
+            <h5 id="formAddTransactionsName" class="text-danger-emphasis">name</h5>
+          </div>
+          <div class="form-group mb-1 ">
+            <label for="inputData" class="mb-2 ">Data</label>
+              <input type="date" class="form-control " name="inputData" id="inputData">
+          </div>
+          <div class="form-group mb-1 ">
+            <!-- <h3 id="numberExisting" class="d-none" >❗❕  number Existing ❕❗</h3> -->
+            <label for="inputTransactionNumber" class="mb-2 ">Transaction number</label>
+              <input type="number"placeholder="number" class="form-control " name="inputTransactionNumber" id="inputTransactionNumber">
+          </div>
+          <div class="form-group mb-1 ">
+            <label for="inputAmount" class="mb-2 ">Amount</label>
+              <input type="number" placeholder="💲 💲 💲" class="form-control " name="inputAmount" id="inputAmount">
+          </div>
+          <button id="BtnAddTransactions" class="btn btn-success my-2">Add Transactions</button>
+          <img src="img/like-gif.gif" id="like2" class="w-25 d-none" alt="like" srcset="">
+        </div>
+      </div>
+    </section>
+
+    <!-- table Clint Transactions -->
+    <section id="tableClintTransactions" class="ClintTransactions d-none">
+      <div>
+        <div id="xmarkClint" class="w-100 shadow p-0 bg-warning-subtle btn rounded-2">
+          <h3 class=" text-center m-0">close</h3>
+        </div>
+        <table class="table table-bordered table-hover table-responsive table-sm  text-center ">
+          <thead>
+            <tr>  
+              <th rowspan="2" id="Clintnumber" class="pb-3">number</th>
+              <th rowspan="2" id="Clintnum" class="pb-3">id Transactions</th>
+              <th id="ClintId" class="text-success fs-5">ClintId</th>
+              <th colspan="2" id="ClintName" class="text-success fs-3">ClintName</th>
+            </tr>
+            <tr>  
+              <th>date</th>
+              <th>amount</th>
+            </tr>
+          </thead>
+
+          <tbody id="tbodyAddTransactions">
+
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th colspan="2">total</th>
+              <th colspan="2" id="totalSumbn">0</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
