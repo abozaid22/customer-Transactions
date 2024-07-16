@@ -257,6 +257,7 @@ function el3rd() {
         </tr>`
     }
     document.getElementById("tbodyAddTransactions").innerHTML = cartona
+    
     let result = bn.reduce((sum,el)=>{
         return sum+Number(el.amount)
      },0)
