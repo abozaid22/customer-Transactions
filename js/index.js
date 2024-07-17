@@ -96,7 +96,8 @@ function getCustomerName() {
         name:inputCustomerName.value,
         id:inputCustomerId.value,
     }
-    if (lestCustomer.id.length>0 && lestCustomer.name.length>0 ) {
+    let regex = /^[A-z]{2,}[0-9]{0,}?\s?(?:\s[\p{L}]+){0,2}$/u;
+    if (lestCustomer.id.length>0 && regex.test(inputCustomerName.value)==true) {
         CustomerSaveName.push(lestCustomer)
         localStorage.setItem("CustomerSaveName",JSON.stringify(CustomerSaveName))
         display()
